@@ -10,6 +10,11 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    
+    env:
+        TIMESTAMP: 1625020636
+        PUBLIC_KEY: ece743736abd740d2c66b33a18725cf2
+        HASH: f00339c6872bc462bdacc4312cdbe04c
 
     steps:
     - uses: actions/checkout@v3
@@ -21,11 +26,7 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn clean install
-    - name: Set up environment variables
-      env:
-        TIMESTAMP: 1625020636
-        PUBLIC_KEY: ece743736abd740d2c66b33a18725cf2
-        HASH: f00339c6872bc462bdacc4312cdbe04c
+    
     - name: Run tests
       run: |
         mvn test -Dtest=GetAllCharacters
