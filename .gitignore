@@ -1,0 +1,19 @@
+# IntelliJ IDEA files
+.idea/
+
+# Compiled output
+target/
+bin/
+
+# Maven files
+pom.xml.backup*
+pom.xml.releaseBackup*
+release.properties
+buildNumber.properties
+
+# Gradle files
+.gradle/
+build/
+
+# Environment variables
+.env
