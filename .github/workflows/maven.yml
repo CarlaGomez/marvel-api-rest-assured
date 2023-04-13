@@ -21,8 +21,21 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn clean install
+    - name: Update TIMESTAMP on .env.example
+      run:  sed -i -e
+            "s/TIMESTAMP=.*/TIMESTAMP=${{ secrets.TIMESTAMP }}/g"
+            .env.example
+    - name: Update PUBLIC_KEY on .env.example
+      run:  sed -i -e
+            "s/PUBLIC_KEY=.*/PUBLIC_KEY=${{ secrets.PUBLIC_KEY }}/g"
+            .env.example
+    - name: Update HASH on .env.example
+      run:  sed -i -e
+            "s/HASH=.*/HASH=${{ secrets.HASH }}/g"
+            .env.example
     - name: Set up environment variables
       run: |
+        cp .env.example .env
         sed -i "s/TIMESTAMP/${{ secrets.TIMESTAMP }}/g" .env
         sed -i "s/PUBLIC_KEY/${{ secrets.PUBLIC_KEY }}/g" .env
         sed -i "s/HASH/${{ secrets.HASH }}/g" .env
