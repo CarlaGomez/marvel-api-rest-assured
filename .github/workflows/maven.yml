@@ -23,9 +23,9 @@ jobs:
       run: mvn clean install
     - name: Set up environment variables
       run: |
-        sed -i "s/TIMESTAMP/${{ secrets.TIMESTAMP }}/g" .env.example
-        sed -i "s/PUBLIC_KEY/${{ secrets.PUBLIC_KEY }}/g" .env.example
-        sed -i "s/HASH/${{ secrets.HASH }}/g" .env.example
+        sed -i "s/TIMESTAMP/${{ secrets.TIMESTAMP }}/g" .env
+        sed -i "s/PUBLIC_KEY/${{ secrets.PUBLIC_KEY }}/g" .env
+        sed -i "s/HASH/${{ secrets.HASH }}/g" .env
     - name: Run tests
       run: |
         mvn test -Dtest=GetAllCharacters
