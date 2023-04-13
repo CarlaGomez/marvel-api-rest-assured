@@ -12,9 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     
     env:
-        TIMESTAMP: ${{ secrets.TIMESTAMP }}
-        PUBLIC_KEY: ${{ secrets.PUBLIC_KEY }}
-        HASH: ${{ secrets.HASH }}
+      TIMESTAMP: ${{ secrets.TIMESTAMP }}
+      PUBLIC_KEY: ${{ secrets.PUBLIC_KEY }}
+      HASH: ${{ secrets.HASH }}
 
     steps:
     - uses: actions/checkout@v3
