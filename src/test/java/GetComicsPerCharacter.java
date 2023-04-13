@@ -30,7 +30,7 @@ public class GetComicsPerCharacter {
                 .statusCode(200)
                 .contentType("application/json; charset=utf-8")
                 .body("data.count", equalTo(100))
-                .body("data.total", equalTo(4196))
+                .body("data.total", equalTo(4223))
                 .body("data.results", notNullValue())
                 .body("data.results.size()", is(100))
                 .body("data.limit", equalTo(100))
