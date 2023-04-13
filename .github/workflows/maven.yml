@@ -25,9 +25,9 @@ jobs:
       run: |
         if [ ! -f .env ]; then cp .env.example .env; fi
       env:
-        TIMESTAMP: ${{ secrets.TIMESTAMP }}
-        PUBLIC_KEY: ${{ secrets.PUBLIC_KEY }}
-        HASH: ${{ secrets.HASH }}
+        TIMESTAMP: "1625020636"
+        PUBLIC_KEY: "${{ secrets.PUBLIC_KEY }}"
+        HASH: "${{ secrets.HASH }}"
     - name: Run tests
       run: |
         mvn test -Dtest=GetAllCharacters
