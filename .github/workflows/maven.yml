@@ -22,11 +22,11 @@ jobs:
     - name: Build with Maven
       run: mvn clean install
     - name: Set up environment variables
-      run: cp .env.example .env
-      env:
-       TIMESTAMP: ${{ secrets.TIMESTAMP }}
-       PUBLIC_KEY: ${{ secrets.PUBLIC_KEY }}
-       HASH: ${{ secrets.HASH }}
+      run: |
+        cp .env.example .env
+        sed -i "s/TIMESTAMP/${{ secrets.TIMESTAMP }}/g" .env
+        sed -i "s/PUBLIC_KEY/${{ secrets.PUBLIC_KEY }}/g" .env
+        sed -i "s/HASH/${{ secrets.HASH }}/g" .env
     - name: Run tests
       run: |
         mvn test -Dtest=GetAllCharacters
