@@ -28,7 +28,10 @@ jobs:
       run: mvn clean install
     
     - name: Run tests
-      run: |
-        mvn test -Dtest=GetAllCharacters
-        mvn test -Dtest=GetCharactersPerComic
-        mvn test -Dtest=GetComicsPerCharacter
+      run: mvn clean test
+      
+    - name: Upload test results
+      uses: actions/upload-artifact@v2
+      with:
+        name: Test results
+        path: test-output/
