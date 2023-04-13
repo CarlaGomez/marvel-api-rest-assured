@@ -23,10 +23,11 @@ jobs:
       run: mvn clean install
     - name: Set up environment variables
       run: |
-        cp .env.example .env
-        sed -i "s/TIMESTAMP/${{ secrets.TIMESTAMP }}/g" .env
-        sed -i "s/PUBLIC_KEY/${{ secrets.PUBLIC_KEY }}/g" .env
-        sed -i "s/HASH/${{ secrets.HASH }}/g" .env
+        if [ ! -f .env ]; then cp .env.example .env; fi
+      env:
+        TIMESTAMP: ${{ secrets.TIMESTAMP }}
+        PUBLIC_KEY: ${{ secrets.PUBLIC_KEY }}
+        HASH: ${{ secrets.HASH }}
     - name: Run tests
       run: |
         mvn test -Dtest=GetAllCharacters
