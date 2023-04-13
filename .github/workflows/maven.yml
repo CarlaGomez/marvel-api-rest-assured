@@ -28,9 +28,9 @@ jobs:
       run: mvn clean install
     - name: Copy .env file
       run:  |
-        cp ${{ secrets.TIMESTAMP }} .env.example
-        cp ${{ secrets.PUBLIC_KEY }} .env.example
-        cp ${{ secrets.HASH }} .env.example
+        cp ${{ secrets.TIMESTAMP }} .env
+        cp ${{ secrets.PUBLIC_KEY }} .env
+        cp ${{ secrets.HASH }} .env
     - name: Run tests
       run: |
         mvn test -Dtest=GetAllCharacters
