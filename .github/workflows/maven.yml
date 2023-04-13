@@ -26,11 +26,6 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn clean install
-    - name: Copy .env file
-      run:  |
-        cp ${{ secrets.TIMESTAMP }} .env
-        cp ${{ secrets.PUBLIC_KEY }} .env
-        cp ${{ secrets.HASH }} .env
     - name: Run tests
       run: |
         mvn test -Dtest=GetAllCharacters
