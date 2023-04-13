@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Test Suite" >
+    <test name="Test Case">
+        <classes>
+            <class name="GetAllCharacters" />
+            <class name="GetCharactersPerComic" />
+            <class name="GetComicsPerCharacter" />
+        </classes>
+    </test>
+    <listeners>
+        <listener class-name="org.testng.reporters.XMLReporter" />
+        <listener class-name="org.testng.reporters.JUnitXMLReporter" />
+        <listener class-name="org.testng.reporters.EmailableReporter" />
+        <listener class-name="org.testng.reporters.SuiteHTMLReporter" />
+        <listener class-name="org.testng.reporters.TestHTMLReporter" />
+    </listeners>
+</suite>
